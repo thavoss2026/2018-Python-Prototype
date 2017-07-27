@@ -1,0 +1,17 @@
+left_motor=0
+right_motor=3
+right_turn=389
+left_turn=418
+forwards_one_inch=500
+backwards_one_inch=500
+arm_servo=1
+arm_up=2000
+arm_down=300
+claw_servo=2
+claw_open=1200
+claw_close=200
+light_sensor=0
+left_tophat=1
+right_tophat=2
+depth_sensor=3
+bump_sensor=0
