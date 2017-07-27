@@ -1,5 +1,5 @@
-left_motor=0
-right_motor=3
+left_motor=3
+right_motor=2
 right_turn=389
 left_turn=418
 forwards_one_inch=500
