@@ -8,7 +8,7 @@ def drive_square():
     msleep(1000)
     print "Wait"
     turn_right() #turn right
-    print "Turn right 90 degrees"
+    print "Turn right for %d ms"%c.right_turn
     msleep(1000)
     print "Wait"
     drive()
@@ -48,6 +48,7 @@ def turn_right(time=c.right_turn):
     motor(c.right_motor,100)
     motor(c.left_motor,100)
     msleep(time)
+    print"Turn for %d ms"%time
     motor(c.left_motor,0)
     motor(c.right_motor,0)    
         
