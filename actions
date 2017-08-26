@@ -9,18 +9,24 @@ def drive_square():
     print "Wait"
     turn_right() #turn right
     print "Turn right 90 degrees"
+    msleep(1000)
+    print "Wait"
     drive()
     msleep(1000)
     print "Wait"
     print "Second drive done"
     turn_right()
     print "Turn right 90 degrees"
+    msleep(1000)
+    print "Wait"
     drive()
     msleep(1000)
     print "Wait"
     print "Third drive done"
     turn_right()
     print "Turn right 90 degrees"
+    msleep(1000)
+    print "Wait"
     drive()
     msleep(1000)
     print "Wait"
