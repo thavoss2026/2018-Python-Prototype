@@ -1,6 +1,6 @@
 left_motor=3
 right_motor=2
-right_turn=389
+right_turn=427
 left_turn=418
 forward_one_inch=500
 backwards_one_inch=500
