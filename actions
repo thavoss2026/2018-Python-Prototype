@@ -1,6 +1,21 @@
 from wallaby import *
 import constants as c
 
+def first_line_follow():
+    print "Starting"
+    while 1==1:
+        print "Read: %d"%analog(c.left_tophat)
+        if analog(c.left_tophat)>c.left_tophat_bw:
+            mav(c.left_motor,1000)
+            msleep(100)
+            mav(c.left_motor,0)
+            print "Black"
+        elif analog(c.left_tophat)<=c.left_tophat_bw:
+            mav(c.right_motor,-1000)
+            msleep(100)
+            mav(c.right_motor,0)
+            print "White"
+                
 def drive_square():
     print "Starting"
     drive()
