@@ -4,7 +4,7 @@ from wallaby import *
 import actions as a
     
 def main():
-    a.drive_square()       
+    a.first_line_follow()       
 
 if __name__== "__main__":
     sys.stdout = os.fdopen(sys.stdout.fileno(),"w",0)
