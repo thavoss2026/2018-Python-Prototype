@@ -12,6 +12,7 @@ claw_open=1200
 claw_close=200
 light_sensor=0
 left_tophat=1
+left_tophat_bw=2500#If more, black. If less, white
 right_tophat=2
 depth_sensor=3
 bump_sensor=0
