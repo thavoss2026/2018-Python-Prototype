@@ -1,3 +1,6 @@
+from wallaby import *
+import constants as c
+
 def drive(time=c.forward_one_inch,drive_left_motor_power=100,drive_right_motor_power=-100):
     motor(c.left_motor,drive_left_motor_power)
     motor(c.right_motor,drive_right_motor_power)
