@@ -1,5 +1,6 @@
 from wallaby import *
 import constants as c
+import movement as m
 
 def line_follow_right():
     print "Starting line_follow_right()"
@@ -22,76 +23,41 @@ def line_follow_left():
         print "Read: %d"%analog(c.left_tophat)
         if analog(c.left_tophat)>c.left_tophat_bw:
             mav(c.right_motor,-1000)
+            mav(c.left_motor,0)
             msleep(100)
             mav(c.right_motor,0)
             print "Black"
         elif analog(c.left_tophat)<=c.left_tophat_bw:
             mav(c.left_motor,1000)
+            mav(c.right_motor,0)
             msleep(100)
             mav(c.left_motor,0)
             print "White"              
                 
 def drive_square():
     print "Starting drive_square"
-    drive()
+    m.drive()
     print "First drive done"
     msleep(1000)
     print "Wait"
-    turn_right() #turn right
+    m.turn_right() #turn right
     msleep(1000)
     print "Wait"
-    drive()
+    m.drive()
     msleep(1000)
     print "Wait"
     print "Second drive done"
-    turn_right()
+    m.turn_right()
     msleep(1000)
     print "Wait"
-    drive()
+    m.drive()
     msleep(1000)
     print "Wait"
     print "Third drive done"
-    turn_right()
+    m.turn_right()
     msleep(1000)
     print "Wait"
-    drive()
+    m.drive()
     msleep(1000)
     print "Wait"
-    print "Fourth drive done"
-
-def drive(time=c.forward_one_inch,drive_left_motor_power=100,drive_right_motor_power=-100):
-    motor(c.left_motor,drive_left_motor_power)
-    motor(c.right_motor,drive_right_motor_power)
-    msleep(time)
-    print"Drive forwards for %d ms"%time
-    motor(c.left_motor,0)
-    motor(c.right_motor,0)
-        
-def wait(time):
-    motor(c.left_motor,0)
-    motor(c.right_motor,0)
-    msleep(time)
-
-def turn_right(time=c.right_turn):
-    motor(c.right_motor,100)
-    motor(c.left_motor,100)
-    msleep(time)
-    print"Turn right for %d ms"%time
-    motor(c.left_motor,0)
-    motor(c.right_motor,0)    
-        
-def turn_left(time=c.left_turn):
-    motor(c.right_motor,-100)
-    motor(c.left_motor,-100)
-    msleep(time)
-    print"Turn left for %d ms"%time
-    motor(c.left_motor,0)
-    motor(c.right_motor,0)  
- 
-def backwards(time=c.backwards_one_inch,backwards_left_motor_power=-100,backwards_right_motor_power=100):
-    motor(c.left_motor,backwards_left_motor_power)
-    motor(c.right_motor,backwards_right_motor_power)
-    msleep(time)
-    print"Drive backwards for %d ms"%time
-    motor(c.left_motor,0)
-    motor(c.right_motor,0)      
+    print "Fourth drive done"   
