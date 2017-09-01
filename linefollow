@@ -40,7 +40,7 @@ def bump_line_follow_left():
             
 #Follows the right side of the line for a specified amount of time
 def timed_line_follow_right():
-    print "Starting bump_line_follow_right()"
+    print "Starting timed_line_follow_right()"
     sec = seconds() + time
     while seconds() < sec:
         print "Read: %d"%analog(c.right_tophat)
@@ -54,9 +54,9 @@ def timed_line_follow_right():
         mav(c.left_motor,0)
         mav(c.right_motor,0)
         
-#Follows the left side of the line for a specified amount of time
+#Follows the left side of the  for a specified amount of time
 def timed_line_follow_left():
-    print "Starting bump_line_follow_left()"
+    print "Starting timed_line_follow_left()"
     sec = seconds() + time
     while seconds() < sec:
         print "Read: %d"%analog(c.left_tophat)
