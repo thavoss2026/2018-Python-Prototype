@@ -1,0 +1,71 @@
+from wallaby import *
+import constants as c
+import movement as m
+
+def BlackLeft
+    analog(c.left_tophat)>c.left_tophat_bw
+
+def BlackRight
+    analog(c.right_tophat)>c.right_tophat_bw
+
+#Follows the right side of the line
+def bump_line_follow_right():
+    print "Starting bump_line_follow_right()"
+    while digital(c.bump_sensor)==0:
+        print "Read: %d"%analog(c.right_tophat)
+        if BlackRight:
+            mav(c.left_motor,1000)
+            print "Black"
+        else:
+            mav(c.right_motor,-1000)
+            print "White"
+        msleep(30)
+        mav(c.left_motor,0)
+        mav(c.right_motor,0)
+        
+#Follows the left side of the line
+def bump_line_follow_left():
+    print "Starting bump_line_follow_left()"
+    while digital(c.bump_sensor)==0:
+        print "Read: %d"%analog(c.left_tophat)
+        if BlackLeft :
+            mav(c.right_motor,-1000)
+            print "Black"
+        else:
+            mav(c.left_motor,1000)
+            print "White"  
+        msleep(30)
+        mav(c.left_motor,0)
+        mav(c.right_motor,0)
+            
+#Follows the right side of the line for a specified amount of time
+def timed_line_follow_right(time):
+    print "Starting timed_line_follow_right()"
+    sec = seconds() + time
+    while seconds() < sec:
+        print "Read: %d"%analog(c.right_tophat)
+        if BlackRight:
+            mav(c.left_motor,1000)
+            print "Black"
+        else:
+            mav(c.right_motor,-1000)
+            print "White"
+        msleep(30)
+        mav(c.left_motor,0)
+        mav(c.right_motor,0)
+        
+#Follows the left side of the  for a specified amount of time
+def timed_line_follow_left(time):
+    print "Starting timed_line_follow_left()"
+    sec = seconds() + time
+    while seconds() < sec:
+        print "Read: %d"%analog(c.left_tophat)
+        if BlackLeft :
+            mav(c.right_motor,-1000)
+            print "Black"
+        else:
+            mav(c.left_motor,1000)
+            print "White"  
+        msleep(30)
+        mav(c.left_motor,0)
+        mav(c.right_motor,0)
