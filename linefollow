@@ -1,0 +1,42 @@
+from wallaby import *
+import constants as c
+import movement as m
+
+def BlackLeft
+    analog(c.left_tophat)>c.left_tophat_bw
+
+def BlackRight
+    analog(c.right_tophat)>c.right_tophat_bw
+
+#Follows the right side of the line
+def line_follow_right(time):
+    print "Starting line_follow_right()"
+    while digital(c.bump_sensor)==0:
+        print "Read: %d"%analog(c.right_tophat)
+        if BlackRight:
+            mav(c.left_motor,1000)
+            msleep(30)
+            mav(c.left_motor,0)
+            print "Black"
+        else:
+            mav(c.right_motor,-1000)
+            msleep(30)
+            mav(c.right_motor,0)
+            print "White"
+
+#Follows the left side of the line
+def line_follow_left(time):
+    print "Starting line_follow_left()"
+    while digital(c.bump_sensor)==0:
+    while right_button()==0:
+        print "Read: %d"%analog(c.left_tophat)
+        if BlackLeft :
+            mav(c.right_motor,-1000)
+            msleep(30)
+            mav(c.right_motor,0)
+            print "Black"
+        else:
+            mav(c.left_motor,1000)
+            msleep(30)
+            mav(c.left_motor,0)
+            print "White"              
