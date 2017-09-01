@@ -9,13 +9,11 @@ def line_follow_right():
         print "Read: %d"%analog(c.left_tophat)
         if analog(c.left_tophat)>c.left_tophat_bw:
             mav(c.left_motor,1000)
-            mav(c.right_motor,0)
             msleep(30)
             mav(c.left_motor,0)
             print "Black"
         elif analog(c.left_tophat)<=c.left_tophat_bw:
             mav(c.right_motor,-1000)
-            mav(c.left_motor,0)
             msleep(30)
             mav(c.right_motor,0)
             print "White"
@@ -27,13 +25,11 @@ def line_follow_left():
         print "Read: %d"%analog(c.left_tophat)
         if analog(c.left_tophat)>c.left_tophat_bw:
             mav(c.right_motor,-1000)
-            mav(c.left_motor,0)
             msleep(30)
             mav(c.right_motor,0)
             print "Black"
         elif analog(c.left_tophat)<=c.left_tophat_bw:
             mav(c.left_motor,1000)
-            mav(c.right_motor,0)
             msleep(30)
             mav(c.left_motor,0)
             print "White"              
