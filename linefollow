@@ -9,7 +9,7 @@ def BlackRight
     analog(c.right_tophat)>c.right_tophat_bw
 
 #Follows the right side of the line
-def bump_line_follow_right():
+def bump_lfollow_right():
     print "Starting bump_line_follow_right()"
     while digital(c.bump_sensor)==0:
         print "Read: %d"%analog(c.right_tophat)
@@ -24,7 +24,7 @@ def bump_line_follow_right():
         mav(c.right_motor,0)
         
 #Follows the left side of the line
-def bump_line_follow_left():
+def bump_lfollow_left():
     print "Starting bump_line_follow_left()"
     while digital(c.bump_sensor)==0:
         print "Read: %d"%analog(c.left_tophat)
@@ -39,7 +39,7 @@ def bump_line_follow_left():
         mav(c.right_motor,0)
             
 #Follows the right side of the line for a specified amount of time
-def timed_line_follow_right(time):
+def timed_lfollow_right(time):
     print "Starting timed_line_follow_right()"
     sec = seconds() + time
     while seconds() < sec:
@@ -55,7 +55,7 @@ def timed_line_follow_right(time):
         mav(c.right_motor,0)
         
 #Follows the left side of the  for a specified amount of time
-def timed_line_follow_left(time):
+def timed_lfollow_left(time):
     print "Starting timed_line_follow_left()"
     sec = seconds() + time
     while seconds() < sec:
