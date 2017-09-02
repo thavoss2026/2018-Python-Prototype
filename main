@@ -2,10 +2,11 @@
 import os, sys
 from wallaby import *
 import actions as a
+import linefollow as f
     
 def main():
     print "Hello World"
-    a.line_follow_left()       
+    f.timed_lfollow_left()       
 
 if __name__== "__main__":
     sys.stdout = os.fdopen(sys.stdout.fileno(),"w",0)
