@@ -3,6 +3,31 @@ import constants as c
 import movement as m
 import linefollow as f
 
+def check_parking():
+    m.turn_right(390)
+    msleep(1000)
+    m.drive(300)
+    msleep(1000)
+    print"Check right parking depth: %d"%analog(c.depth_sensor)
+    if analog(c.depth_sensor)>c.depth_far:
+        m.backwards(300)    
+        m.turn_left(500)
+        second_parking()
+    else:
+        m.drive(1000)
+        print "Parked in spot 1"
+            
+def second_parking():
+    msleep(1000)
+    print"Check left parking depth: %d"%analog(c.depth_sensor)
+    if analog(c.depth_sensor)>c.depth_far:
+        m.backwards(1000)    
+        m.turn_left(600)
+        f.b_line_follow_left(120)
+    else:
+        m.drive(1000)
+        print "Part in spot 2"
+                  
 def drive_square():
     print "Starting drive_square"
     m.drive()
