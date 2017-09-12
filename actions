@@ -3,6 +3,16 @@ import constants as c
 import movement as m
 import linefollow as f
 
+def calib():
+    m.drive()
+    msleep(500)
+    m.backwards()
+    msleep(500)
+    m.turn_left()
+    msleep(500)
+    m.turn_right()
+    msleep(500) 
+
 def check_parking():
     m.turn_right(390)
     msleep(1000)
