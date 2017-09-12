@@ -16,7 +16,6 @@ def lfollow_right_bstop(time):
     sec = seconds() + time
     while seconds() < sec and analog(c.left_tophat)<c.left_tophat_bw:
         print "Tophat: %d"%analog(c.left_tophat)
-        print "Depth: %d"%analog(c.depth_sensor)
         if BlackRight():
             mav(c.left_motor,1000)
             print "Black"
@@ -32,7 +31,6 @@ def lfollow_left_bstop(time):
     sec = seconds() + time
     while seconds() < sec and analog(c.right_tophat)<c.right_tophat_bw:
         print "Tophat: %d"%analog(c.right_tophat)
-        print "Depth: %d"%analog(c.depth_sensor)
         if  not BlackLeft():
             mav(c.left_motor,1000)
             print "Black"
