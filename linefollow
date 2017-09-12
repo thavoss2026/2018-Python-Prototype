@@ -2,18 +2,54 @@ from wallaby import *
 import constants as c
 import movement as m
 
-def BlackLeft
-    analog(c.left_tophat)>c.left_tophat_bw
+def depth_sensed():
+    return(analog(c.depth_sensor)>c.depth_mid)
 
-def BlackRight
-    analog(c.right_tophat)>c.right_tophat_bw
+def BlackRight():
+    return(analog(c.right_tophat)>c.right_tophat_bw)
+  
+def BlackLeft():
+    return(analog(c.left_tophat)>c.left_tophat_bw)
+        
+def lfollow_right_bstop(time):
+    print "Starting lfollow_right_bstop()"
+    sec = seconds() + time
+    while seconds() < sec and analog(c.left_tophat)<c.left_tophat_bw:
+        print "Tophat: %d"%analog(c.left_tophat)
+        print "Depth: %d"%analog(c.depth_sensor)
+        if BlackRight():
+            mav(c.left_motor,1000)
+            print "Black"
+        elif not BlackRight():
+            mav(c.right_motor,-1000)
+            print "White!"
+        msleep(30)
+        mav(c.left_motor,0)
+        mav(c.right_motor,0)
 
-#Follows the right side of the line
-def bump_lfollow_right():
-    print "Starting bump_line_follow_right()"
-    while digital(c.bump_sensor)==0:
-        print "Read: %d"%analog(c.right_tophat)
-        if BlackRight:
+def lfollow_left_bstop(time):
+    print "Starting lfollow_left_bstop()"
+    sec = seconds() + time
+    while seconds() < sec and analog(c.right_tophat)<c.right_tophat_bw:
+        print "Tophat: %d"%analog(c.right_tophat)
+        print "Depth: %d"%analog(c.depth_sensor)
+        if  not BlackLeft():
+            mav(c.left_motor,1000)
+            print "Black"
+        elif BlackLeft():
+            mav(c.right_motor,-1000)
+            print "White!"
+        msleep(30)
+        mav(c.left_motor,0)
+        mav(c.right_motor,0)
+        
+        
+def depth_line_follow_right():
+    print "Starting line_follow_right()"
+    while analog(c.depth_sensor)<c.depth_mid:
+        print "Tophat: %d"%analog(c.left_tophat)
+        print "Depth: %d"%analog(c.depth_sensor)
+        if BlackRight():
             mav(c.left_motor,1000)
             print "Black"
         else:
@@ -22,50 +58,73 @@ def bump_lfollow_right():
         msleep(30)
         mav(c.left_motor,0)
         mav(c.right_motor,0)
-        
-#Follows the left side of the line
-def bump_lfollow_left():
-    print "Starting bump_line_follow_left()"
-    while digital(c.bump_sensor)==0:
+                
+
+def line_follow_right(time):
+    print "Starting line_follow_right()"
+   #while digital(c.bump_sensor)==0:
+    sec = seconds() + time
+    while seconds() < sec and analog(c.depth_sensor)<c.depth_mid:
         print "Read: %d"%analog(c.left_tophat)
-        if BlackLeft :
-            mav(c.right_motor,-1000)
-            print "Black"
-        else:
+        if BlackRight():
             mav(c.left_motor,1000)
-            print "White"  
+            print "Black"
+        elif not BlackRight():
+            mav(c.right_motor,-1000)
+            print "White!"
         msleep(30)
         mav(c.left_motor,0)
         mav(c.right_motor,0)
-            
-#Follows the right side of the line for a specified amount of time
-def timed_lfollow_right(time):
-    print "Starting timed_line_follow_right()"
+                
+def b_line_follow_right(time):
+    print "Starting line_follow_right()"
+    sec = seconds() + time
+    while seconds() < sec and analog(c.left_tophat)<c.left_tophat_bw:
+        print "Tophat: %d"%analog(c.left_tophat)
+        print "Depth: %d"%analog(c.depth_sensor)
+        if analog(c.depth_sensor)>c.depth_mid:
+            msleep(100)
+        elif BlackRight():
+            mav(c.left_motor,1000)
+            print "Black"
+        elif not BlackRight():
+            mav(c.right_motor,-1000)
+            print "White!"
+        msleep(30)
+        mav(c.left_motor,0)
+        mav(c.right_motor,0)
+
+def b_line_follow_left(time):
+    print "Starting line_follow_left()"
+    sec = seconds() + time
+    while seconds() < sec and analog(c.right_tophat)<c.right_tophat_bw:
+        print "Tophat: %d"%analog(c.right_tophat)
+        print "Depth: %d"%analog(c.depth_sensor)
+        if analog(c.depth_sensor)>c.depth_mid:
+            msleep(100)
+        elif not BlackLeft():
+            mav(c.left_motor,1000)
+            print "Black"
+        elif BlackLeft():
+            mav(c.right_motor,-1000)
+            print "White!"
+        msleep(30)
+        mav(c.left_motor,0)
+        mav(c.right_motor,0)
+
+                
+def line_follow_left_time():
+    print "Starting line_follow_left()"
     sec = seconds() + time
     while seconds() < sec:
-        print "Read: %d"%analog(c.right_tophat)
-        if BlackRight:
-            mav(c.left_motor,1000)
-            print "Black"
-        else:
-            mav(c.right_motor,-1000)
-            print "White"
-        msleep(30)
-        mav(c.left_motor,0)
-        mav(c.right_motor,0)
-        
-#Follows the left side of the  for a specified amount of time
-def timed_lfollow_left(time):
-    print "Starting timed_line_follow_left()"
-    sec = seconds() + time
-    while seconds() < sec:
         print "Read: %d"%analog(c.left_tophat)
-        if BlackLeft :
+        if BlackLeft():
             mav(c.right_motor,-1000)
             print "Black"
         else:
             mav(c.left_motor,1000)
-            print "White"  
+            print "White"              
         msleep(30)
-        mav(c.left_motor,0)
-        mav(c.right_motor,0)
+        mav(c.left_motor,0)      
+        mav(c.right_motor,0)       
+                
