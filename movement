@@ -15,16 +15,16 @@ def wait(time):
     msleep(time)
 
 def turn_right(time=c.right_turn):
-    motor(c.right_motor,100)
-    motor(c.left_motor,100)
+    motor(c.right_motor,-100)
+    motor(c.left_motor,-100)
     msleep(time)
     print"Turn right for %d ms"%time
     motor(c.left_motor,0)
     motor(c.right_motor,0)    
         
 def turn_left(time=c.left_turn):
-    motor(c.right_motor,-100)
-    motor(c.left_motor,-100)
+    motor(c.right_motor,100)
+    motor(c.left_motor,100)
     msleep(time)
     print"Turn left for %d ms"%time
     motor(c.left_motor,0)
