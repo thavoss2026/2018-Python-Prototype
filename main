@@ -7,7 +7,6 @@ import linefollow as f
 def main():
     print "Hello World"
     f.lfollow_right_bstop(30)
-    a.check_parking()
         
 if __name__== "__main__":
     sys.stdout = os.fdopen(sys.stdout.fileno(),"w",0)
