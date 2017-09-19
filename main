@@ -11,3 +11,16 @@ def main():
 if __name__== "__main__":
     sys.stdout = os.fdopen(sys.stdout.fileno(),"w",0)
     main();
+#-!/usr/bin/python
+import os, sys
+from wallaby import *
+import actions as a
+import linefollow as f
+
+def main():
+    print "Hello World"
+    f.depth_line_follow_right()   
+        
+if __name__== "__main__":
+    sys.stdout = os.fdopen(sys.stdout.fileno(),"w",0)
+    main();
