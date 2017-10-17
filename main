@@ -1,14 +1,17 @@
 #!/usr/bin/python
+print "Run Python 2018"
 import os, sys
 from wallaby import *
+import constants as c
 import actions as a
 import linefollow as f
 import movement as m
 
 def main():
     print "Hello World"
-    m.drive()    
-        
+    f.lfollow_right_bstop_value(10000)
+    
+
 if __name__== "__main__":
     sys.stdout = os.fdopen(sys.stdout.fileno(),"w",0)
     main();
