@@ -9,7 +9,7 @@ import movement as m
 
 def main():
     print "Hello World"
-    f.lfollow_right_bstop_value(10000)
+    f.lfollow_right_bstop(10000)
     
 
 if __name__== "__main__":
