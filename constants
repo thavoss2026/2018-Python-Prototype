@@ -24,14 +24,3 @@ bump_sensor_value=digital(bump_sensor)
 left_tophat_value=analog(left_tophat)
 right_tophat_value=analog(right_tophat)
 depth_sensor_value=analog(depth_sensor)
-
-def depth_sensed():
-    return(analog(depth_sensor)>depth_mid)
-
-def BlackRight():
-    return(analog(right_tophat)>right_tophat_bw)
-  
-def BlackLeft():
-    return(analog(left_tophat)>left_tophat_bw)
-        
-
