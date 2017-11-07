@@ -5,7 +5,7 @@ def drive(time=c.forward_one_inch,drive_left_motor_power=100,drive_right_motor_p
     motor(c.left_motor,drive_left_motor_power)
     motor(c.right_motor,drive_right_motor_power)
     msleep(time)
-    print"Drive forwards for %d ms"%time
+    print "Drive forwards for %d ms"%time
     motor(c.left_motor,0)
     motor(c.right_motor,0)
         
@@ -18,7 +18,7 @@ def turn_right(time=c.right_turn):
     motor(c.right_motor,-100)
     motor(c.left_motor,-100)
     msleep(time)
-    print"Turn right for %d ms"%time
+    print "Turn right for %d ms"%time
     motor(c.left_motor,0)
     motor(c.right_motor,0)    
         
@@ -26,7 +26,7 @@ def turn_left(time=c.left_turn):
     motor(c.right_motor,100)
     motor(c.left_motor,100)
     msleep(time)
-    print"Turn left for %d ms"%time
+    print "Turn left for %d ms"%time
     motor(c.left_motor,0)
     motor(c.right_motor,0)  
  
@@ -34,6 +34,6 @@ def backwards(time=c.backwards_one_inch,backwards_left_motor_power=-100,backward
     motor(c.left_motor,backwards_left_motor_power)
     motor(c.right_motor,backwards_right_motor_power)
     msleep(time)
-    print"Drive backwards for %d ms"%time
+    print "Drive backwards for %d ms"%time
     motor(c.left_motor,0)
     motor(c.right_motor,0)   
