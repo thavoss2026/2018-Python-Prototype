@@ -10,12 +10,21 @@ def BlackRight():
   
 def BlackLeft():
     return(analog(c.left_tophat)>c.left_tophat_bw)
+
+def base_line_follow_left():
+    print "Tophat: %d"%analog(c.left_tophat)
+        if  not BlackLeft():
+            mav(c.left_motor,1000)
+            print "Black"
+        elif BlackLeft():
+            mav(c.right_motor,-1000)
+            print "White!"
+        msleep(30)
+        mav(c.left_motor,0)
+        mav(c.right_motor,0)
         
-def lfollow_right_bstop(time):
-    print "Starting lfollow_right_bstop()"
-    sec = seconds() + time
-    while seconds() < sec and analog(c.left_tophat)<c.left_tophat_bw:
-        print "Tophat: %d"%analog(c.right_tophat)
+def base_line_follow_right():
+    print "Tophat: %d"%analog(c.right_tophat)
         if BlackRight():
             mav(c.left_motor,1000)
             print "Black"
@@ -26,20 +35,17 @@ def lfollow_right_bstop(time):
         mav(c.left_motor,0)
         mav(c.right_motor,0)
 
+def lfollow_right_bstop(time):
+    print "Starting lfollow_right_bstop()"
+    sec = seconds() + time
+    while seconds() < sec and analog(c.left_tophat)<c.left_tophat_bw:
+        base_line_follow_right()
+        
 def lfollow_left_bstop(time):
     print "Starting lfollow_left_bstop()"
     sec = seconds() + time
     while seconds() < sec and analog(c.right_tophat)<c.right_tophat_bw:
-        print "Tophat: %d"%analog(c.left_tophat)
-        if  not BlackLeft():
-            mav(c.left_motor,1000)
-            print "Black"
-        elif BlackLeft():
-            mav(c.right_motor,-1000)
-            print "White!"
-        msleep(30)
-        mav(c.left_motor,0)
-        mav(c.right_motor,0)
+        base_line_follow_left()
         
         
 def depth_line_follow_right():
@@ -115,13 +121,4 @@ def line_follow_left_time():
     print "Starting line_follow_left()"
     sec = seconds() + time
     while seconds() < sec:
-        print "Read: %d"%analog(c.left_tophat)
-        if BlackLeft():
-            mav(c.right_motor,-1000)
-            print "Black"
-        else:
-            mav(c.left_motor,1000)
-            print "White"              
-        msleep(30)
-        mav(c.left_motor,0)      
-        mav(c.right_motor,0)       
+        base_line_follow_left()       
